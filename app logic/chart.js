@@ -1,15 +1,16 @@
 
 const ctx = document.getElementById('myChart').getContext('2d');
 
-export async function createChart(dataArr) {
+export async function createChart(dataArr, continent) {
   console.log(dataArr);
+  console.log();
   const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: Object.keys(dataArr.Africa),
+      labels: dataArr[continent].map(country=> {return country.name}),
       datasets: [{
           label: '# of Votes',
-          data: [12, 19, 3, 5, 20, 3],
+          data: dataArr[continent].map(country=> {return country.latest_data['confirmed']}),
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',

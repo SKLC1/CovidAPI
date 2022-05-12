@@ -4,6 +4,6 @@ import { createChart } from "./chart.js";
 async function createApp() {
   const data = await getData()
   // console.log(data);
-  createChart(data)
+  createChart(data, 'Africa')
 }
 createApp()
