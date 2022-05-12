@@ -1,0 +1,9 @@
+
+
+
+to dod list :
+
+- function to destroy chart every time a button is pressed
+- add 'world' button 
+- once a continent chart is shown give statistics options 
+- styling
