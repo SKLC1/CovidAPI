@@ -7,7 +7,9 @@ export async function getData() {
   const res2 = await fetch('https://restcountries.herokuapp.com/api/v1')
   const data1 = await res1.json();
   const data2 = await res2.json();
-  createMainObj(data1,data2)
+  const dataArr = await createMainObj(data1,data2)
+  const splittedData = await splitDataByContinent(dataArr)
+  return splittedData
 }
 // getData()
 
@@ -15,16 +17,34 @@ export async function createMainObj (covidData, continentsData) {
   const arrOfCovidData = covidData["data"] 
   const joinedDataArr = [];
 
-   function matchCodes(arrOfCovidData, continentsData) {
+  async function matchCodes(arrOfCovidData, continentsData) {
     for (let i = 0; i < arrOfCovidData.length; i++) {
       for (let j = 0; j < continentsData.length; j++) {
         if (arrOfCovidData[i]['code'] === continentsData[j]['cca2']) {
           arrOfCovidData[i].region = continentsData[j]['region']
+          arrOfCovidData[i].subregion = continentsData[j]['subregion']
           joinedDataArr.push(arrOfCovidData[i])
         }
       }
     }
-    console.log(joinedDataArr);
   }
-  matchCodes(arrOfCovidData,continentsData)
+  matchCodes(arrOfCovidData, continentsData)
+  return joinedDataArr
+}
+
+async function splitDataByContinent(joinedDataArr) {
+  const dataObj = {}
+  const continentArr = ['Europe','Oceania','Africa','Asia','Americas']
+  joinedDataArr.forEach(country => {
+    for (let i = 0; i < continentArr.length; i++) {
+      if(country.region === continentArr[i]){
+        if(!dataObj[country.region]){
+          dataObj[country.region] = []
+        } else {
+          (dataObj[country.region]).push(country)
+        }
+      }
+    }
+  });
+  return dataObj
 }

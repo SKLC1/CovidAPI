@@ -3,6 +3,7 @@ import { createChart } from "./chart.js";
 
 async function createApp() {
   const data = await getData()
-  console.log(data);
+  // console.log(data);
+  createChart(data)
 }
 createApp()

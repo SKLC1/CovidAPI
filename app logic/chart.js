@@ -6,7 +6,7 @@ export async function createChart(dataArr) {
   const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: Object.keys(dataArr.Africa),
       datasets: [{
           label: '# of Votes',
           data: [12, 19, 3, 5, 20, 3],
