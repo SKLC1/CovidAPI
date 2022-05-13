@@ -3,9 +3,9 @@
   let click = 1;
  
   export async function latestData(dataArr, continent) {
-  
-  const names = dataArr[continent].map(country=> {return country.name});
-  const cases = dataArr[continent].map(country=> {return country.latest_data['confirmed']});
+    
+    const names = dataArr[continent].map(country=> {return country.name});
+    const cases = dataArr[continent].map(country=> {return country.latest_data['confirmed']});
   
   const labels = names
   const data = {
@@ -39,7 +39,7 @@ function updateChart(config, click) {
 }
 
 
-export function createSubData(data,continent) {
+export function createSubButtons(data,continent) {
   const categoriesObj = data[continent][0]['latest_data']
   const calcObj = data[continent][0]['latest_data']['calculated']
   
@@ -54,11 +54,20 @@ export function createSubData(data,continent) {
   subBtnCont.appendChild(btn)
   i++;
   }
-  // subBtnContArr.forEach(btn=>{
-  //   btn.addEventListener('click', ()=>{
-  //     handleSubBtnClick(dataArr)
-  //   })
-  // })
+  subBtnContArr.forEach(btn=>{
+    btn.insideData = data;
+    btn.addEventListener('click', (btn)=>{
+      handleSubBtnClick(btn,continent)
+    })
+  })
 }
 
+function handleSubBtnClick(btn,continent) {
+  const newData = btn.currentTarget.insideData;
+  const category = btn.path[0].innerText
+  const confirmed= newData[category]
+  
+  console.log(category);
+  console.log(continent);
+}
 

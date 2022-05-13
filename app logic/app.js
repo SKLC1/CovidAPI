@@ -1,5 +1,5 @@
 import { getData } from "./data.js";
-import { latestData, createSubData } from "./chart.js";
+import { latestData, createSubButtons } from "./chart.js";
 const ctx = document.getElementById('myChart').getContext('2d');
 
 let isSubBtn = false;
@@ -9,7 +9,7 @@ async function createApp() {
   function handleClick(e,) {
     const continent = e.currentTarget.innerText;
     latestData(data, continent)
-    createSubData(data, continent)
+    createSubButtons(data, continent)
   }
   // 
   
