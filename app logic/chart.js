@@ -75,8 +75,35 @@ function handleSubBtnClick(btn) {
   const newData = btn.currentTarget.insideData;
   const category = btn.currentTarget.innerText;
   let continent = btn.currentTarget.cont
-  
+
   console.log(category);
   console.log(continent);
+
+  updateToCategoryChart(category, continent, newData)
 }
 
+ function updateToCategoryChart(category, continent, newData) {
+   
+  const names = newData[continent].map(country=> {return country.name});
+  let selectedCategory = newData[continent].map(country=> {return country.latest_data[category]});
+  
+const labels = names
+const data = {
+  labels,
+  datasets: [{
+    data: selectedCategory,
+    labels: 'cases',
+  }]
+}
+
+const config = {
+  type: 'line',
+  data: data,
+  Option: {
+    responsive: true,
+  }
+}
+
+  myChart.destroy()
+  myChart = new Chart(ctx, config)
+ }
