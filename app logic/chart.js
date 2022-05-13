@@ -1,49 +1,52 @@
 
-  
   const ctx = document.getElementById('myChart').getContext('2d');
+  let click = 1;
+ 
+  export async function latestData(dataArr, continent) {
   
-  export async function createChart(dataArr, continent) {
-
-    const names = dataArr[continent].map(country=> {return country.name});
-    const cases = dataArr[continent].map(country=> {return country.latest_data['confirmed']});
-    
-    const covidStatsChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: names,
-      datasets: [{
-        label: '# of Votes',
-        data: cases,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-    
+  const names = dataArr[continent].map(country=> {return country.name});
+  const cases = dataArr[continent].map(country=> {return country.latest_data['confirmed']});
+  
+  const labels = names
+  const data = {
+    labels,
+    datasets: [{
+      data: cases,
+      labels: 'cases',
+    }]
   }
   
+  const config = {
+    type: 'line',
+    data: data,
+    Option: {
+      responsive: true,
+    }
+  }
+  // ;
+  updateChart(config, click)
+  click++;
+}
 
+let myChart = null
+function updateChart(config, click) {
+  if (click === 1) {
+    myChart = new Chart(ctx, config)
+    // createSubData()
+  } else {
+    myChart.destroy()
+    myChart = new Chart(ctx, config)
+  }
+}
+
+// export function createSubData (data,continent) {
+//   const subBtnCont = document.querySelector('.sub-data-container')
+//   const categories = data[continent][0]['latest_data']
+//   const calculated = data[continent][0]['latest_data']['calculated']
+  
+//   for (const category of Object.entries(categories)) {
+//       console.log(category);
+//   }
+// }
 
 
