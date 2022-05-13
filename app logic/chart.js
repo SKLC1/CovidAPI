@@ -1,12 +1,13 @@
 
   const ctx = document.getElementById('myChart').getContext('2d');
   let click = 1;
+  let isSubBtn = false
  
   export async function latestData(dataArr, continent) {
     
     const names = dataArr[continent].map(country=> {return country.name});
     const cases = dataArr[continent].map(country=> {return country.latest_data['confirmed']});
-  
+    
   const labels = names
   const data = {
     labels,
@@ -40,32 +41,40 @@ function updateChart(config, click) {
 
 
 export function createSubButtons(data,continent) {
-  const categoriesObj = data[continent][0]['latest_data']
-  const calcObj = data[continent][0]['latest_data']['calculated']
-  
-  const subBtnCont = document.querySelector('.sub-data-container')
+  let categoriesObj = data[continent][0]['latest_data']
   const subBtnContArr = []
+  const subBtnCont = document.querySelector('.sub-data-container')
   let i = 0;
-  for (const category in categoriesObj) {
-  const btn = document.createElement('button')
-  btn.classList.add(`subBtn`)
-  btn.innerText = category
-  subBtnContArr.push(btn)
-  subBtnCont.appendChild(btn)
-  i++;
+  if (isSubBtn === false) {
+    for (const category in categoriesObj) {
+      isSubBtn = true
+      const btn = document.createElement('button')
+      btn.classList.add('subBtn')
+      btn.innerText = category
+      subBtnContArr.push(btn)
+      subBtnCont.appendChild(btn)
+      i++;
+    } 
+  } else {
+    const subBtnNode = document.querySelectorAll('.subBtn')
+    let subBtnArr = [...subBtnNode]
+    subBtnArr.forEach(btn=>{
+      btn.cont = continent;
+    })
   }
   subBtnContArr.forEach(btn=>{
     btn.insideData = data;
+    btn.cont = continent;
     btn.addEventListener('click', (btn)=>{
-      handleSubBtnClick(btn,continent)
+      handleSubBtnClick(btn)
     })
   })
 }
 
-function handleSubBtnClick(btn,continent) {
+function handleSubBtnClick(btn) {
   const newData = btn.currentTarget.insideData;
-  const category = btn.path[0].innerText
-  const confirmed= newData[category]
+  const category = btn.currentTarget.innerText;
+  let continent = btn.currentTarget.cont
   
   console.log(category);
   console.log(continent);
