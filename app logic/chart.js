@@ -32,21 +32,20 @@ let myChart = null
 function updateChart(config, click) {
   if (click === 1) {
     myChart = new Chart(ctx, config)
-    // createSubData()
   } else {
     myChart.destroy()
     myChart = new Chart(ctx, config)
   }
 }
 
-// export function createSubData (data,continent) {
-//   const subBtnCont = document.querySelector('.sub-data-container')
-//   const categories = data[continent][0]['latest_data']
-//   const calculated = data[continent][0]['latest_data']['calculated']
+export function createSubData(data,continent) {
+  const subBtnCont = document.querySelector('.sub-data-container')
+  const categories = data[continent][0]['latest_data']
+  const calculated = data[continent][0]['latest_data']['calculated']
   
-//   for (const category of Object.entries(categories)) {
-//       console.log(category);
-//   }
-// }
+  for (const category of Object.entries(categories)) {
+      console.log(category);
+  }
+}
 
 

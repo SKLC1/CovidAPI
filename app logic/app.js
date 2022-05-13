@@ -1,5 +1,5 @@
 import { getData } from "./data.js";
-import { latestData } from "./chart.js";
+import { latestData, createSubData } from "./chart.js";
 const ctx = document.getElementById('myChart').getContext('2d');
 
 async function createApp() {
@@ -8,7 +8,7 @@ async function createApp() {
   function handleClick(e,) {
     const continent = e.currentTarget.innerText;
     latestData(data, continent)
-    // createSubData(data, continent)
+    createSubData(data, continent)
   }
   // 
 
