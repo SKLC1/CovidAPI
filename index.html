@@ -4,23 +4,29 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="./style.css">
   <title>Covid Stats</title>
 </head>
 <body>
-  <div class="chart-container">
-    <canvas id="myChart" width="2" height="1"></canvas>
-    <div class="sub-data-container"></div>
-  </div>
-  <div class="btn-contaienr">
-    <button class="btn">Africa</button>
-    <button class="btn">Asia</button>
-    <button class="btn">Oceania</button>
-    <button class="btn">Americas</button>
-    <button class="btn">Europe</button>
-  </div>
+  <div class="main-container">
 
+    <div class="chart-container">
+      <canvas id="myChart" width="2" height="1"></canvas>
+      <div class="sub-data-container"></div>
+    </div>
+    <div class="btn-contaienr">
+      <button class="btn">Africa</button>
+      <button class="btn">Asia</button>
+      <button class="btn">Oceania</button>
+      <button class="btn">Americas</button>
+      <button class="btn">Europe</button>
+    </div>
+    
+  </div>
   <!-- <script type="module" src="./app logic/data.js"></script> -->
   <script type="module" src="./app logic/chart.js"></script>
   <script type="module" src="./app logic/app.js"></script>

@@ -14,14 +14,16 @@
     datasets: [{
       data: cases,
       labels: `${continent}`,
+      backgroundColor: 'rgb(254,79,121)',
     }]
   }
   
   const config = {
-    type: 'line',
+    type: 'bar',
     data: data,
     Option: {
       responsive: true,
+      
     }
   }
   // ;
@@ -47,7 +49,7 @@ export function createSubButtons(data,continent) {
   let i = 0;
   if (isSubBtn === false) {
     for (const category in categoriesObj) {
-      if (category !== 'calculated') {
+      if (category !== 'calculated') { // not showing calculated btn for now
         isSubBtn = true
         const btn = document.createElement('button')
         btn.classList.add('subBtn')
@@ -95,11 +97,12 @@ const data = {
   datasets: [{
     data: selectedCategory,
     labels: 'cases',
+    backgroundColor: 'rgb(254,79,121)',
   }]
 }
 
 const config = {
-  type: 'line',
+  type: 'bar',
   data: data,
   Option: {
     responsive: true,

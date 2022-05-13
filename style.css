@@ -1,9 +1,54 @@
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body{
   height: 100vh;
   width: 100vw;
+  background-color: rgb(1,20,52);
 }
+/* chart */
 .chart-container{
   width: 90%;
   height: 80%;
+  background-color: rgb(15,42,87);
+}
+/* containers */
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.btn-contaienr{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sub-data-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+/* buttons */
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  border: none;
+  color: rgb(254,79,121);
+  background-color: rgb(1,20,52);
+  margin: 0.4rem;
+  padding: 0.2rem;
+}
+button:focus{
+  border: 2px solid rgb(254,79,121);
+  border-radius: 10px;
+
+}
+.subBtn{
+  background-color: rgb(15,42,87);
 }
