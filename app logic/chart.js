@@ -38,14 +38,27 @@ function updateChart(config, click) {
   }
 }
 
+
 export function createSubData(data,continent) {
-  const subBtnCont = document.querySelector('.sub-data-container')
-  const categories = data[continent][0]['latest_data']
-  const calculated = data[continent][0]['latest_data']['calculated']
+  const categoriesObj = data[continent][0]['latest_data']
+  const calcObj = data[continent][0]['latest_data']['calculated']
   
-  for (const category of Object.entries(categories)) {
-      console.log(category);
+  const subBtnCont = document.querySelector('.sub-data-container')
+  const subBtnContArr = []
+  let i = 0;
+  for (const category in categoriesObj) {
+  const btn = document.createElement('button')
+  btn.classList.add(`subBtn`)
+  btn.innerText = category
+  subBtnContArr.push(btn)
+  subBtnCont.appendChild(btn)
+  i++;
   }
+  // subBtnContArr.forEach(btn=>{
+  //   btn.addEventListener('click', ()=>{
+  //     handleSubBtnClick(dataArr)
+  //   })
+  // })
 }
 
 

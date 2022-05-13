@@ -2,6 +2,7 @@ import { getData } from "./data.js";
 import { latestData, createSubData } from "./chart.js";
 const ctx = document.getElementById('myChart').getContext('2d');
 
+let isSubBtn = false;
 async function createApp() {
   const data = await getData()
   console.log(data);
@@ -11,13 +12,16 @@ async function createApp() {
     createSubData(data, continent)
   }
   // 
-
-  function appendButtons() { 
-    const btns = document.querySelectorAll('.btn')
-    const btnsArr = [...btns]
-    btnsArr.forEach(btn =>{
-      btn.addEventListener('click', handleClick)
-     })
+  
+  function appendButtons() {
+    if (isSubBtn === false) {
+      isSubBtn = true;
+      const subBtn = document.querySelectorAll('.btn')
+      const subBtnArr = [...subBtn]
+      subBtnArr.forEach(btn =>{
+        btn.addEventListener('click', handleClick)
+      })
+    } 
   }
   appendButtons()
 }
