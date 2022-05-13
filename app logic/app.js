@@ -6,6 +6,7 @@ let isSubBtn = false;
 async function createApp() {
   const data = await getData()
   console.log(data);
+  latestData(data, 'Africa')
   function handleClick(e,) {
     const continent = e.currentTarget.innerText;
     latestData(data, continent)

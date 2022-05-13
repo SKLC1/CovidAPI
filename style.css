@@ -22,7 +22,7 @@ body{
   align-items: center;
   justify-content: center;
 }
-.btn-contaienr{
+.btn-container{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,7 +31,6 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 /* buttons */
 
@@ -47,7 +46,6 @@ button {
 button:focus{
   border: 2px solid rgb(254,79,121);
   border-radius: 10px;
-
 }
 .subBtn{
   background-color: rgb(15,42,87);
