@@ -13,7 +13,7 @@
     labels,
     datasets: [{
       data: cases,
-      labels: 'cases',
+      labels: `${continent}`,
     }]
   }
   
@@ -47,13 +47,15 @@ export function createSubButtons(data,continent) {
   let i = 0;
   if (isSubBtn === false) {
     for (const category in categoriesObj) {
-      isSubBtn = true
-      const btn = document.createElement('button')
-      btn.classList.add('subBtn')
-      btn.innerText = category
-      subBtnContArr.push(btn)
-      subBtnCont.appendChild(btn)
-      i++;
+      if (category !== 'calculated') {
+        isSubBtn = true
+        const btn = document.createElement('button')
+        btn.classList.add('subBtn')
+        btn.innerText = category
+        subBtnContArr.push(btn)
+        subBtnCont.appendChild(btn)
+        i++;
+      }
     } 
   } else {
     const subBtnNode = document.querySelectorAll('.subBtn')
