@@ -52,7 +52,7 @@ async function splitDataByContinent(joinedDataArr) {
   return dataObj
 }
 
-function createWorldData(dataObj) {
+export async function createWorldData(dataObj) {
   let worldCombinedData = {
     confirmed: 0,
     recovered: 0,
@@ -67,5 +67,17 @@ function createWorldData(dataObj) {
       }
     })
   }
- return worldCombinedData
+  
+ appendWorldData(worldCombinedData)
+}
+
+function appendWorldData(worldCombinedData) {
+  const statCont = document.querySelector('.total-stats-container')
+  console.log(worldCombinedData);
+  for (const stat in worldCombinedData) {
+    const statElement = document.createElement('div')
+    statElement.classList.add('stat-element')
+    statElement.innerText = `${stat} : ${worldCombinedData[stat]}`
+    statCont.appendChild(statElement)
+  }
 }
