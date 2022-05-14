@@ -69,6 +69,7 @@ button {
 button:focus{
   border: 2px solid rgb(254,79,121);
   border-radius: 10px;
+  box-sizing:border-box;
 }
 .subBtn{
   background-color: rgb(15,42,87);

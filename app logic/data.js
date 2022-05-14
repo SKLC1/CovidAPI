@@ -1,6 +1,7 @@
 
 // for now allowing cors with chrome extention because of
 // limitations of requests from proxy will
+
 // need to be changed
 export async function getData() {
   const res1 = await fetch('https://corona-api.com/countries')
@@ -46,5 +47,18 @@ async function splitDataByContinent(joinedDataArr) {
       }
     }
   });
+  createWorldData(dataObj)
   return dataObj
+}
+
+function createWorldData(dataObj) {
+  let worldCombinedData = {
+    confirmed: 0,
+  }
+  for (const continent in dataObj) {
+    dataObj[continent].forEach((country)=>{
+      worldCombinedData.confirmed += country.latest_data['confirmed'];
+    })
+  }
+ console.log(worldCombinedData.confirmed);
 }

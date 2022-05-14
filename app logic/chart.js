@@ -13,7 +13,7 @@
     labels,
     datasets: [{
       data: cases,
-      labels: `${continent}`,
+      labels: "label",
       backgroundColor: 'rgb(254,79,121)',
     }]
   }
@@ -96,7 +96,7 @@ const data = {
   labels,
   datasets: [{
     data: selectedCategory,
-    labels: 'cases',
+    labels: "test",
     backgroundColor: 'rgb(254,79,121)',
   }]
 }
