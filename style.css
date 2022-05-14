@@ -19,6 +19,9 @@ body{
   background-color: rgb(1,20,52);
   color: white;
 }
+.stat-element{
+  color: rgb(254,79,121);
+}
 /* chart */
 .chart-container{
   width: 80%;
@@ -55,6 +58,16 @@ body{
   align-items: center;
   justify-content: center;
 }
+.total-stats-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.total-stats-container div {
+  margin: 0 1rem;
+  border-radius: 25px;
+  
+}
 /* buttons */
 
 button {
@@ -73,6 +86,7 @@ button:focus{
 }
 .subBtn{
   background-color: rgb(15,42,87);
+  
 }
 
 /* media */
