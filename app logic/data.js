@@ -54,11 +54,17 @@ async function splitDataByContinent(joinedDataArr) {
 function createWorldData(dataObj) {
   let worldCombinedData = {
     confirmed: 0,
+    recovered: 0,
+    critical: 0,
+    deaths: 0,
   }
   for (const continent in dataObj) {
     dataObj[continent].forEach((country)=>{
-      worldCombinedData.confirmed += country.latest_data['confirmed'];
+      for (const category in country.latest_data) {
+        if(category !== 'calculated')
+        worldCombinedData[category] += country.latest_data[category];
+      }
     })
   }
- console.log(worldCombinedData.confirmed);
+ console.log(worldCombinedData);
 }
