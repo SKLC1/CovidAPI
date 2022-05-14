@@ -5,7 +5,7 @@
 // need to be changed
 export async function getData() {
   const res1 = await fetch('https://corona-api.com/countries')
-  const res2 = await fetch('https://restcountries.herokuapp.com/api/v1')
+  const res2 = await fetch('https://nameless-citadel-58066.herokuapp.com/https://restcountries.herokuapp.com/api/v1')
   const data1 = await res1.json();
   const data2 = await res2.json();
   const dataArr = await createMainObj(data1,data2)
