@@ -90,15 +90,26 @@ button:focus{
   box-sizing:border-box;
 }
 .subBtn{
-  background-color: rgb(15,42,87);
-  
+  background-color: rgb(15,42,87); 
 }
 /* select country */
 .country-option{
   position :relative;
 }
+/* added country data */
+.country-data-container{
+  width: 30%;
+  height: 14rem;
+  background-color: rgb(1,20,52);
+  border-radius: 25px;
+}
 #select-country{
   width: 8rem;
+  background-color: rgb(15,42,87);
+  color: #fff;
+  border-radius: 25px;
+  border: transparent;
+  padding: 0.2rem;
 }
 /* media */
 

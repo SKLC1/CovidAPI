@@ -90,8 +90,29 @@ function createOptions(dataArr) {
   dataArr.forEach(country=>{
     let opt = document.createElement('option')
     opt.classList.add('country-option')
-    opt.value = country.latest_data
+    opt.value = country.name
     opt.innerText = country['name']
     select.appendChild(opt)
   })
+  select.addEventListener('click',(opt)=>{
+    let clickedCountry = opt.currentTarget.value;
+    let clickedCountryData = {}
+    dataArr.forEach(country=>{
+      if (clickedCountry === country.name) {
+        clickedCountryData.data = country.latest_data
+      }
+    })
+    appendClickedCountry(clickedCountryData.data);
+  })
+}
+
+let isCont = false
+function appendClickedCountry(countryDataObj) {
+  const chartCont = document.querySelector('.rounded-container')
+  const countryDataCont = document.createElement('div')
+  if (!isCont) {   
+  countryDataCont.classList.add('country-data-container')
+  chartCont.appendChild(countryDataCont)
+  isCont = true
+}
 }
