@@ -99,20 +99,67 @@ function createOptions(dataArr) {
     let clickedCountryData = {}
     dataArr.forEach(country=>{
       if (clickedCountry === country.name) {
+        clickedCountryData.name = country.name
         clickedCountryData.data = country.latest_data
+        appendClickedCountry(clickedCountryData.data, clickedCountry);
       }
     })
-    appendClickedCountry(clickedCountryData.data);
+  })
+  select.addEventListener("change",(opt)=> {
+    let clickedCountry = opt.currentTarget.value;
+    let clickedCountryData = {}
+    dataArr.forEach(country=>{
+      if (clickedCountry === country.name) {
+        clickedCountryData.name = country.name
+        clickedCountryData.data = country.latest_data
+        changedClickedCountry(clickedCountryData.data, clickedCountry);
+      }
+    })
   })
 }
 
-let isCont = false
-function appendClickedCountry(countryDataObj) {
+let isCont = false;
+function appendClickedCountry(countryDataStatsObj, countryName) {
   const chartCont = document.querySelector('.rounded-container')
   const countryDataCont = document.createElement('div')
-  if (!isCont) {   
+  let innerData = document.createElement('div')
   countryDataCont.classList.add('country-data-container')
-  chartCont.appendChild(countryDataCont)
-  isCont = true
+  innerData.classList.add('country-inner-data')
+  if (!isCont) {   
+    chartCont.appendChild(countryDataCont)
+    isCont = true;
+  } 
+  innerData.innerHTML = `${countryName}`
+  countryDataCont.appendChild(innerData)
+  for (const key in countryDataStatsObj) {
+    if(key !== 'calculated'){
+      const stat = document.createElement('div')
+      stat.classList.add('stat')
+      stat.innerHTML = `${key}: ${countryDataStatsObj[key]}`  
+      countryDataCont.appendChild(stat)
+    }
+    // } else {
+    //   for (const calcCategory in countryDataStatsObj.calculated) {
+    //     const stat = document.createElement('div')
+    //     stat.classList.add('stat')
+    //     stat.innerHTML = `${calcCategory}: ${countryDataStatsObj.calculated[calcCategory]}`  
+    //     countryDataCont.appendChild(stat)
+    //   }
+    // }
+    // code for adding calculated
+  }
 }
+
+function changedClickedCountry(countryDataStatsObj, countryName) {
+  const categoriesArr = []
+  const innerData = document.querySelector('.country-inner-data')
+  innerData.innerHTML = `${countryName}`
+  const statsArr = document.querySelectorAll('.stat')
+  let i = 0;
+  for (const key in countryDataStatsObj) {
+    if(key !== 'calculated'){
+      statsArr[i].innerHTML = `${key}: ${countryDataStatsObj[key]}`
+      i++;
+    }
+  }
 }
