@@ -47,7 +47,8 @@ async function splitDataByContinent(joinedDataArr) {
       }
     }
   });
-  createWorldData(dataObj)
+  const worldTotal = createWorldData(dataObj)
+  dataObj['World'] = joinedDataArr;
   return dataObj
 }
 
@@ -66,5 +67,5 @@ function createWorldData(dataObj) {
       }
     })
   }
- console.log(worldCombinedData);
+ return worldCombinedData
 }
