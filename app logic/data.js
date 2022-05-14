@@ -47,6 +47,9 @@ async function splitDataByContinent(joinedDataArr) {
       }
     }
   });
+  // 
+  createOptions(joinedDataArr)
+  // 
   const worldTotal = createWorldData(dataObj)
   dataObj['World'] = joinedDataArr;
   return dataObj
@@ -80,4 +83,15 @@ function appendWorldData(worldCombinedData) {
     statElement.innerText = `World ${stat} : ${worldCombinedData[stat]}`
     statCont.appendChild(statElement)
   }
+}
+
+function createOptions(dataArr) {
+  const select = document.querySelector('#select-country')
+  dataArr.forEach(country=>{
+    let opt = document.createElement('option')
+    opt.classList.add('country-option')
+    opt.value = country.latest_data
+    opt.innerText = country['name']
+    select.appendChild(opt)
+  })
 }

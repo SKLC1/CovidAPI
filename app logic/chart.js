@@ -112,3 +112,5 @@ const config = {
   myChart.destroy()
   myChart = new Chart(ctx, config)
  }
+
+ 
