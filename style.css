@@ -21,6 +21,7 @@ body{
 }
 .stat-element{
   color: rgb(254,79,121);
+  font-weight: 600;
 }
 /* chart */
 .chart-container{
@@ -66,7 +67,6 @@ body{
 .total-stats-container div {
   margin: 0 1rem;
   border-radius: 25px;
-  
 }
 /* buttons */
 
@@ -78,6 +78,7 @@ button {
   background-color: rgb(1,20,52);
   margin: 0.4rem;
   padding: 0.2rem;
+  cursor: pointer;
 }
 button:focus{
   border: 2px solid rgb(254,79,121);
@@ -92,5 +93,9 @@ button:focus{
 /* media */
 
 @media (max-width:1200px) {
- 
+  .total-stats-container div {
+    font-size: 0.4rem;
+    margin: 0 1rem;
+    border-radius: 25px;
+  }
 }

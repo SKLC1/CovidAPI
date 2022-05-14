@@ -77,7 +77,7 @@ function appendWorldData(worldCombinedData) {
   for (const stat in worldCombinedData) {
     const statElement = document.createElement('div')
     statElement.classList.add('stat-element')
-    statElement.innerText = `${stat} : ${worldCombinedData[stat]}`
+    statElement.innerText = `World ${stat} : ${worldCombinedData[stat]}`
     statCont.appendChild(statElement)
   }
 }
