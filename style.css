@@ -106,10 +106,13 @@ button:focus{
   font-weight: 600;
 }
 .country-inner-data{
+  margin: 0.5rem 0;
   color: rgb(254,79,121);
 }
 .stat{
+  font-size: 80%;
   color: rgb(254,79,121);
+  margin: 1rem 0;
 }
 #select-country{
   width: 8rem;
