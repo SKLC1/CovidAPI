@@ -14,33 +14,36 @@
 <body>
   <div class="main-container">
     <div class="navbar">
-        <div class="nav-item">COVID-19 World Statistics</div>
-        <div class="nav-item">Select Country
-          <select id="select-country"></select>
-        </div>
+      <div class="nav-item">COVID-19 World Statistics</div>
+      <div class="nav-item">Select Country
+        <select id="select-country"></select>
       </div>
-    </div>
-    <div class="total-stats-container"></div>
-    <div class="rounded-container">
-
-      <div class="chart-container">
-        <canvas id="myChart" width="2" height="1"></canvas>
-        <div class="sub-data-container"></div>
-      </div>
-      
-    </div>
-    <div class="btn-container">
-      <button class="btn">Africa</button>
-      <button class="btn">Asia</button>
-      <button class="btn">Oceania</button>
-      <button class="btn">Americas</button>
-      <button class="btn">Europe</button>
-      <button class="btn">World</button>
     </div>
   </div>
+  <div class="total-stats-container"></div>
+  <div class="rounded-container">
     
-  <!-- <script type="module" src="./app logic/data.js"></script> -->
-  <script type="module" src="./app logic/chart.js"></script>
-  <script type="module" src="./app logic/app.js"></script>
+    <div class="chart-container">
+      <canvas id="myChart" width="2" height="1"></canvas>
+      <div class="sub-data-container"></div>
+    </div>
+    
+  </div>
+  <div class="btn-container">
+    <button class="btn">Africa</button>
+    <button class="btn">Asia</button>
+    <button class="btn">Oceania</button>
+    <button class="btn">Americas</button>
+    <button class="btn">Europe</button>
+    <button class="btn">World</button>
+  </div>
+</div>
+<div class="spinner-wrapper">
+  <div id="loading"></div>
+</div>
+
+<!-- <script type="module" src="./app logic/data.js"></script> -->
+<script type="module" src="./app logic/chart.js"></script>
+<script type="module" src="./app logic/app.js"></script>
 </body>
 </html>

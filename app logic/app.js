@@ -29,3 +29,12 @@ async function createApp() {
 createApp()
 
 
+function isLoading() {
+  const spinnerWrapper = document.querySelector('.spinner-wrapper');
+  const mainContainer = document.querySelector('.main-container');
+  window.addEventListener('load',()=>{
+    spinnerWrapper.parentElement.removeChild(spinnerWrapper)
+  })
+
+}
+isLoading()
